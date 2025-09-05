@@ -3,10 +3,7 @@ import AstronautSlider from '../ui/AstronautSlider'
 
 const HeroSection = () => {
   const handleDiscoverClick = () => {
-    const portfolioSection = document.getElementById('portfolio')
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (

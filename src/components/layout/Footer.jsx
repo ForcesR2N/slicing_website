@@ -16,10 +16,8 @@ const Footer = () => {
   ]
 
   const handleNavClick = (href) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+    // scroll to section
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -27,7 +25,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           
-          {/* Column 1: Logo & About */}
+          {/* Logo & About */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4">TNT</h3>
             <p className="text-gray-300 font-body leading-relaxed">
@@ -36,7 +34,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Navigation Links */}
+          {/* Navigation Links */}
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold font-heading mb-4">Quick Links</h4>
             <nav className="grid grid-cols-2 gap-y-3 gap-x-6">
@@ -56,7 +54,7 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Column 3: Contact & Social */}
+          {/* Contact & Social */}
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold font-heading mb-4">Get In Touch</h4>
             
@@ -65,18 +63,18 @@ const Footer = () => {
               <a 
                 href="mailto:hello@tnt-agency.com"
                 className="flex items-center justify-center md:justify-start text-gray-300 hover:text-primary transition-colors duration-200 font-body"
-                aria-label="Send email to hello@tnt-agency.com"
+                aria-label="Send email to cihuy@tnt-agency.com"
               >
                 <FaEnvelope className="mr-3 text-primary" />
-                hello@tnt-agency.com
+                cihuy@tnt-agency.com
               </a>
               <a 
-                href="tel:+15551234567"
+                href="082777777777"
                 className="flex items-center justify-center md:justify-start text-gray-300 hover:text-primary transition-colors duration-200 font-body"
-                aria-label="Call +1 (555) 123-4567"
+                aria-label="Call +7 (777) 123-7777"
               >
                 <FaPhone className="mr-3 text-primary" />
-                +1 (555) 123-4567
+                +7 (777) 123-7777
               </a>
             </div>
 

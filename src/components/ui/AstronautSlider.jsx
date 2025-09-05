@@ -6,7 +6,7 @@ const AstronautSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   
-  // TODO: maybe add swipe gestures for mobile later
+  // TODO: add touch swipe for mobile soon maybe
   const slides = [
     {
       id: 1,
@@ -25,9 +25,8 @@ const AstronautSlider = () => {
     }
   ]
 
-  console.log('Current slide:', currentSlide) // debug info
+  // console.log('Current slide:', currentSlide) // keeping this for now
 
-  // auto slides
   useEffect(() => {
     if (!isHovered) {
       const interval = setInterval(() => {
@@ -71,7 +70,6 @@ const AstronautSlider = () => {
               
               {/* astronaut container */}
               <div className="relative animate-float w-full max-w-md mx-auto">
-                {/* simple glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-3xl rounded-full"></div>
                 
                 {/* astronaut image */}
@@ -81,14 +79,14 @@ const AstronautSlider = () => {
                   className="relative w-full h-full object-contain drop-shadow-2xl"
                   style={{ maxHeight: '400px', maxWidth: '400px' }}
                   onError={(e) => {
-                    // FIXME: better fallback needed soon if i have time
+                    // quick fix for broken images
                     e.target.style.display = 'none'
                     e.target.nextSibling.style.display = 'block'
                   }}
                 />
                 
-                {/* fallback icon - hidden by default */}
-                <div className="hidden w-full h-full flex items-center justify-center min-h-[400px]">
+                {/* fallback icon */}
+                <div className="hidden w-full h-full items-center justify-center min-h-[400px]">
                   <FaUserAstronaut className="w-32 h-32 text-orange-400/60" />
                 </div>
               </div>

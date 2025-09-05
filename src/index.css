@@ -1,14 +1,8 @@
-/* ============================================ */
-/* FONTS & TAILWIND IMPORTS */
-/* ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
 @tailwind base;
 @tailwind components; 
 @tailwind utilities;
 
-/* ============================================ */
-/* GLOBAL RESET & BASE STYLES */
-/* ============================================ */
 *,
 *::before,
 *::after {
@@ -37,9 +31,6 @@ body {
   display: block;
 }
 
-/* ============================================ */
-/* ACCESSIBILITY STYLES */
-/* ============================================ */
 *:focus {
   outline: 2px solid #f97316;
   outline-offset: 2px;
@@ -55,9 +46,6 @@ body {
   }
 }
 
-/* ============================================ */
-/* CUSTOM ANIMATIONS */
-/* ============================================ */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -73,9 +61,6 @@ body {
   animation: fade-in 0.6s ease-out forwards;
 }
 
-/* ============================================ */
-/* SCROLLBAR STYLING */
-/* ============================================ */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -92,10 +77,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
-
-/* ============================================ */
-/* COMPONENT-SPECIFIC STYLES */
-/* ============================================ */
 
 /* Hero Section */
 .hero-section {
