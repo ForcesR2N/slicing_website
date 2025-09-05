@@ -7,24 +7,27 @@ const AstronautSlider = () => {
   const [isPaused, setIsPaused] = useState(false)
   const sliderRef = useRef(null)
 
-  // Image variations - using emoji with different effects for now
+  // Slider images configuration
   const slides = [
     {
       id: 1,
-      astronaut: '🧑‍🚀',
+      image: '/assets/images/image.png',
+      alt: 'Astronaut in space - slide 1',
       filter: 'none',
       glow: 'from-purple-500/20 to-blue-500/20'
     },
     {
       id: 2,
-      astronaut: '👨‍🚀',
-      filter: 'hue-rotate(60deg)',
+      image: '/assets/images/image_2.png',
+      alt: 'Astronaut in space - slide 2', 
+      filter: 'hue-rotate(30deg) brightness(1.1)',
       glow: 'from-green-500/20 to-cyan-500/20'
     },
     {
       id: 3,
-      astronaut: '👩‍🚀',
-      filter: 'hue-rotate(300deg)',
+      image: '/assets/images/image_3.png',
+      alt: 'Astronaut in space - slide 3',
+      filter: 'hue-rotate(300deg) brightness(0.9)',
       glow: 'from-pink-500/20 to-violet-500/20'
     }
   ]
@@ -94,12 +97,7 @@ const AstronautSlider = () => {
       aria-label="Astronaut image slider"
     >
       {/* Slider Wrapper with Controlled Overflow */}
-      <div className="slider-wrapper relative w-full h-full overflow-hidden rounded-2xl"
-        style={{
-          maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)'
-        }}
-      >
+      <div className="slider-wrapper relative w-full h-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 via-purple-900/50 to-indigo-900">
         {/* Slider Track */}
         <div 
           className="slider-track flex h-full transition-transform duration-500 ease-in-out"
@@ -117,23 +115,27 @@ const AstronautSlider = () => {
               {/* Space Background for Each Slide */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-purple-900/60 to-indigo-900/80 rounded-2xl"></div>
               
-              {/* Astronaut Container with Individual Glow */}
-              <div className="relative animate-float">
+              {/* Astronaut Image Container with Individual Glow */}
+              <div className="relative animate-float w-full max-w-md mx-auto">
                 {/* Dynamic Background Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${slide.glow} blur-3xl rounded-full scale-150`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-r ${slide.glow} blur-3xl rounded-full scale-110`}></div>
                 
-                {/* Astronaut Figure */}
-                <div 
-                  className="relative text-8xl lg:text-9xl filter drop-shadow-2xl transition-all duration-500"
-                  style={{ filter: slide.filter }}
-                  role="img"
-                  aria-label={`Astronaut ${index + 1}`}
-                >
-                  {slide.astronaut}
-                </div>
+                {/* Astronaut Image */}
+                <img 
+                  src={slide.image}
+                  alt={slide.alt}
+                  className="relative w-full h-full object-contain filter drop-shadow-2xl transition-all duration-500 rounded-2xl"
+                  style={{ 
+                    filter: slide.filter,
+                    maxHeight: '400px',
+                    maxWidth: '400px'
+                  }}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
                 
-                {/* Helmet Reflection Effect */}
-                <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white/30 rounded-full blur-sm"></div>
+                {/* Subtle Light Reflection Effect */}
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white/10 rounded-full blur-lg"></div>
+                <div className="absolute bottom-4 left-4 w-8 h-8 bg-blue-300/20 rounded-full blur-md"></div>
               </div>
 
               {/* Enhanced Colorful Swirling Trails - Individual per slide */}

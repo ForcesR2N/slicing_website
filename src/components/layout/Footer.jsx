@@ -23,7 +23,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-dark text-white py-12 md:py-16">
+    <footer className="bg-dark text-white py-12 md:py-16 w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           
@@ -39,16 +39,19 @@ const Footer = () => {
           {/* Column 2: Navigation Links */}
           <div className="text-center md:text-left">
             <h4 className="text-lg font-semibold font-heading mb-4">Quick Links</h4>
-            <nav className="space-y-3">
+            <nav className="grid grid-cols-2 gap-y-3 gap-x-6">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.name}
-                  onClick={() => handleNavClick(link.href)}
-                  className="block text-gray-300 hover:text-primary transition-colors duration-200 focus:outline-none focus:text-primary font-body"
-                  aria-label={`Navigate to ${link.name}`}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavClick(link.href)
+                  }}
+                  className="text-gray-300 hover:text-primary transition-colors duration-200 font-body text-left"
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </nav>
           </div>
@@ -102,7 +105,7 @@ const Footer = () => {
         {/* Bottom Border */}
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 font-body">
-            <p>&copy; 2024 TNT Agency. All rights reserved.</p>
+            <p>&copy; 2025 TNT Agency. All rights reserved.</p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <button 
                 className="hover:text-primary transition-colors duration-200 focus:outline-none focus:text-primary"
